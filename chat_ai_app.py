@@ -25,15 +25,10 @@ def main():
 
     messages = st.session_state.get('messages', [])
     for message in messages:
-        print("===")
-        print(message)
-        print(type(message))
         if isinstance(message, AIMessage):
-            print("AIMessage")
             with st.chat_message('assistant'):
                 st.markdown(message.content)
         elif isinstance(message, HumanMessage):
-            print("HumanMessage")
             with st.chat_message('user'):
                 st.markdown(message.content)
         else:
